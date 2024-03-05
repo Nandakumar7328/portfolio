@@ -1,0 +1,27 @@
+.name-h5{
+    color: #FFFFFF;
+    font-weight: bold;
+    
+}
+.cert-container{
+    width: 100vw;
+    display: flex;
+    padding-left: 170px;
+    padding-right: 170px;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    
+}
+.cert-image{
+    width: 400px;
+    height: 350px;
+}
+.image-sixe{
+  width: 100%;
+}
+.link-mask-text{
+    padding: 30px;
+}
+
+
