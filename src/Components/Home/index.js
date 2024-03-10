@@ -1,6 +1,7 @@
 import Header from '../Header'
 import Certificate from '../Certificate'
 import Work from '../Work'
+import Contact from '../Contact'
 import pfofile from './nanda.png'; 
 import cv from "../../../src/assets/Nanda_Kumar_resume.pdf"
 import './index.css'
@@ -42,7 +43,7 @@ const Home = () => {
          </div>
           <Work/>
          <Certificate/>
-        
+         <Contact/>
         </div>
     )
 }
