@@ -1,5 +1,6 @@
 import Header from '../Header'
 import Certificate from '../Certificate'
+import Work from '../Work'
 import pfofile from './nanda.png'; 
 import cv from "../../../src/assets/Nanda_Kumar_resume.pdf"
 import './index.css'
@@ -13,7 +14,7 @@ const Home = () => {
           <div className='d-flex flex-row justify-content-center'>
             <div  className='d-flex justify-content-around'>
                 <div className='d-flex flex-column col-6'>
-                    <h1 className='name-h1'>Nanda Kumar</h1>
+                    <h1 className='name-h1 glow-white'>Nanda Kumar</h1>
                     <p className='intro'>Passionate full-stack developer with expertise in front-end and back-end technologies. Dedicated to crafting efficient, user-friendly web solutions.</p>
 
                 <a href={cv} className='cv_btn' target="_blank" download>
@@ -39,8 +40,9 @@ const Home = () => {
           <div class="image-rounded7"></div>
           </div>
          </div>
-
+          <Work/>
          <Certificate/>
+        
         </div>
     )
 }

@@ -1,6 +1,11 @@
+body {
+  font-family: 'Open Sans', sans-serif !important;
+}
 .home-container{
     background-color: #000000;
+    /* background-image: url("https://images.pexels.com/photos/13103446/pexels-photo-13103446.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2"); */
     width: 100% !important;
+    
 
     
 }
@@ -308,4 +313,9 @@
 
 .skil{
     margin-bottom: 50px;
+}
+
+.glow-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  color: white; /* Set the color of the text */
 }
