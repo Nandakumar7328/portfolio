@@ -156,17 +156,17 @@ const Contact = () => {
                         {isSubmitting ? (
                             <>
                                 <i className="fas fa-spinner fa-spin"></i>
-                                Sending...
+                                Sending Message...
                             </>
                         ) : submitStatus === 'success' ? (
                             <>
                                 <i className="fas fa-check"></i>
-                                Message Sent!
+                                Thanks for reaching out!
                             </>
                         ) : submitStatus === 'error' ? (
                             <>
                                 <i className="fas fa-exclamation-circle"></i>
-                                Error Sending
+                                Oops! Try again
                             </>
                         ) : (
                             <>
