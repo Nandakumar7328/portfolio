@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import AOS from 'aos';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import 'aos/dist/aos.css';
 import './Contact.scss';
 
 const Contact = () => {
+    const formRef = useRef();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
 
     const handleChange = (e) => {
         setFormData({
@@ -18,10 +21,32 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Add your form submission logic here
-        console.log('Form submitted:', formData);
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            await emailjs.sendForm(
+                'service_giq64ij', 
+                'template_cd89qhj', 
+                formRef.current,
+                'lFKbxeuECl8alAjcV' 
+            );
+
+            setSubmitStatus('success');
+            setFormData({
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            });
+        } catch (error) {
+            setSubmitStatus('error');
+            console.error('Error sending email:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -36,7 +61,7 @@ const Contact = () => {
                     <h3>Contact Information</h3>
                     <p>Feel free to reach out to me for any questions or opportunities!</p>
                     
-                    <div className="info-item">
+                    <div className="info-item" data-aos="fade-up" data-aos-delay="100">
                         <i className="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
@@ -44,19 +69,19 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <div className="info-item">
+                    <div className="info-item" data-aos="fade-up" data-aos-delay="200">
                         <i className="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Location</h4>
-                            <p>Chennai5+, India</p>
+                            <p>Chennai, India</p>
                         </div>
                     </div>
 
-                    <div className="social-links">
-                        <a href="https://github.com/nandakumar-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                    <div className="social-links" data-aos="fade-up" data-aos-delay="300">
+                        <a href="https://github.com/Nandakumar7328" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                             <i className="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/nandakumar-tech" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <a href="https://www.linkedin.com/in/nandakumar-arjun" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                             <i className="fab fa-linkedin-in"></i>
                         </a>
                         <a href="https://twitter.com/nandakumar_tech" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
@@ -65,8 +90,14 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <form className="contact-form" onSubmit={handleSubmit} data-aos="fade-left" data-aos-duration="1000">
-                    <div className="form-group">
+                <form 
+                    ref={formRef}
+                    className="contact-form" 
+                    onSubmit={handleSubmit} 
+                    data-aos="fade-left" 
+                    data-aos-duration="1000"
+                >
+                    <div className="form-group" data-aos="fade-up" data-aos-delay="100">
                         <input
                             type="text"
                             name="name"
@@ -75,10 +106,11 @@ const Contact = () => {
                             placeholder="Your Name"
                             required
                             aria-label="Your Name"
+                            className={isSubmitting ? 'submitting' : ''}
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group" data-aos="fade-up" data-aos-delay="200">
                         <input
                             type="email"
                             name="email"
@@ -87,10 +119,11 @@ const Contact = () => {
                             placeholder="Your Email"
                             required
                             aria-label="Your Email"
+                            className={isSubmitting ? 'submitting' : ''}
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group" data-aos="fade-up" data-aos-delay="300">
                         <input
                             type="text"
                             name="subject"
@@ -99,10 +132,11 @@ const Contact = () => {
                             placeholder="Subject"
                             required
                             aria-label="Subject"
+                            className={isSubmitting ? 'submitting' : ''}
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group" data-aos="fade-up" data-aos-delay="400">
                         <textarea
                             name="message"
                             value={formData.message}
@@ -110,11 +144,36 @@ const Contact = () => {
                             placeholder="Your Message"
                             required
                             aria-label="Your Message"
+                            className={isSubmitting ? 'submitting' : ''}
                         ></textarea>
                     </div>
 
-                    <button type="submit" className="submit-btn">
-                        Send Message
+                    <button 
+                        type="submit" 
+                        className={`submit-btn ${isSubmitting ? 'submitting' : ''} ${submitStatus ? submitStatus : ''}`}
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <i className="fas fa-spinner fa-spin"></i>
+                                Sending...
+                            </>
+                        ) : submitStatus === 'success' ? (
+                            <>
+                                <i className="fas fa-check"></i>
+                                Message Sent!
+                            </>
+                        ) : submitStatus === 'error' ? (
+                            <>
+                                <i className="fas fa-exclamation-circle"></i>
+                                Error Sending
+                            </>
+                        ) : (
+                            <>
+                                <i className="fas fa-paper-plane"></i>
+                                Send Message
+                            </>
+                        )}
                     </button>
                 </form>
             </div>
