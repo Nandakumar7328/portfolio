@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["*"],
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
+      "@styles/*": ["assets/styles/*"],
+      "@images/*": ["assets/images/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build"]
+} 

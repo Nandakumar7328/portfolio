@@ -1,0 +1,59 @@
+// Theme Variables
+:root {
+    // Light Theme
+    &[data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: rgba(255, 255, 255, 0.8);
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --accent-primary: #6366f1;
+        --accent-secondary: #818cf8;
+        --gradient-primary: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(255, 255, 255, 0.2);
+        --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    // Dark Theme
+    &[data-theme="dark"] {
+        --bg-primary: #0f172a;
+        --bg-secondary: rgba(15, 23, 42, 0.8);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --accent-primary: #818cf8;
+        --accent-secondary: #6366f1;
+        --gradient-primary: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+        --card-bg: rgba(30, 41, 59, 0.9);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Mixins
+@mixin glass-effect {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+}
+
+@mixin card-hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+@mixin gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px; 

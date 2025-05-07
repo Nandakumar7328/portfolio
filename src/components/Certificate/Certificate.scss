@@ -1,0 +1,199 @@
+// Variables
+$bg-primary: #0a0b1e;
+$bg-secondary: #0f1123;
+$accent-primary: #4f46e5;
+$accent-secondary: #06b6d4;
+$text-primary: #ffffff;
+$text-secondary: #94a3b8;
+$card-bg: rgba(255, 255, 255, 0.03);
+$card-border: rgba(255, 255, 255, 0.05);
+$gradient-primary: linear-gradient(135deg, $accent-primary, $accent-secondary);
+$gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent-secondary, 0.5));
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin glass-card {
+    background: $card-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid $card-border;
+    border-radius: 20px;
+}
+
+@mixin gradient-text {
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+// Certificate Section
+.certificate-section {
+    padding: 6rem 2rem;
+    background: $bg-primary;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 20%, rgba($accent-primary, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba($accent-secondary, 0.15) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        @include gradient-text;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: $text-secondary;
+    }
+}
+
+.certificates-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.certificate-card {
+    @include glass-card;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $gradient-primary;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+
+        &::before {
+            opacity: 0.1;
+        }
+
+        .view-certificate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+.certificate-content {
+    position: relative;
+    z-index: 1;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: $text-primary;
+    }
+
+    .certificate-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .issuer {
+            color: $accent-primary;
+            font-weight: 500;
+        }
+
+        .date {
+            color: $text-secondary;
+        }
+    }
+
+    p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.view-certificate {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: $gradient-primary;
+    color: $text-primary;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+    opacity: 0;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($accent-primary, 0.3);
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .certificate-section {
+        padding: 4rem 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    .certificate-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-grid {
+        gap: 1.5rem;
+    }
+
+    .certificate-content {
+        h3 {
+            font-size: 1.3rem;
+        }
+    }
+} 

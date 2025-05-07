@@ -1,0 +1,241 @@
+// Variables
+$bg-primary: #0a0b1e;
+$bg-secondary: #0f1123;
+$accent-primary: #4f46e5;
+$accent-secondary: #06b6d4;
+$text-primary: #ffffff;
+$text-secondary: #94a3b8;
+$card-bg: rgba(255, 255, 255, 0.03);
+$card-border: rgba(255, 255, 255, 0.05);
+$gradient-primary: linear-gradient(135deg, $accent-primary, $accent-secondary);
+$gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent-secondary, 0.5));
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin glass-card {
+    background: $card-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid $card-border;
+    border-radius: 20px;
+}
+
+@mixin gradient-text {
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+// Contact Section
+.contact-section {
+    padding: 6rem 2rem;
+    background: $bg-primary;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 20%, rgba($accent-primary, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba($accent-secondary, 0.15) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        @include gradient-text;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: $text-secondary;
+    }
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    padding: 0 1rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-info {
+    @include glass-card;
+    padding: 2rem;
+
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: $text-primary;
+    }
+
+    p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    i {
+        font-size: 1.5rem;
+        color: $accent-primary;
+        margin-right: 1rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: $text-primary;
+        margin-bottom: 0.3rem;
+    }
+
+    p {
+        color: $text-secondary;
+        margin: 0;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    a {
+        @include flex-center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $card-bg;
+        color: $text-primary;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $gradient-primary;
+            transform: translateY(-3px);
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.contact-form {
+    @include glass-card;
+    padding: 2rem;
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid $card-border;
+            border-radius: 10px;
+            color: $text-primary;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $accent-primary;
+                box-shadow: 0 0 0 2px rgba($accent-primary, 0.2);
+            }
+
+            &::placeholder {
+                color: $text-secondary;
+            }
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+    }
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: $gradient-primary;
+    color: $text-primary;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($accent-primary, 0.3);
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 4rem 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    .contact-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .info-item {
+        i {
+            font-size: 1.2rem;
+        }
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+} 

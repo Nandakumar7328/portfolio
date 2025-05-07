@@ -1,0 +1,218 @@
+// Variables
+$bg-primary: #0a0b1e;
+$bg-secondary: #0f1123;
+$accent-primary: #4f46e5;
+$accent-secondary: #06b6d4;
+$text-primary: #ffffff;
+$text-secondary: #94a3b8;
+$card-bg: rgba(255, 255, 255, 0.03);
+$card-border: rgba(255, 255, 255, 0.05);
+$gradient-primary: linear-gradient(135deg, $accent-primary, $accent-secondary);
+$gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent-secondary, 0.5));
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin glass-card {
+    background: $card-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid $card-border;
+    border-radius: 20px;
+}
+
+@mixin gradient-text {
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+// Work Section
+.work-section {
+    padding: 6rem 2rem;
+    background: $bg-secondary;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $gradient-primary;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        @include gradient-text;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: $text-secondary;
+    }
+}
+
+.projects-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    @include glass-card;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+
+        .project-image {
+            .project-overlay {
+                opacity: 1;
+            }
+
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($bg-primary, 0.8);
+        @include flex-center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .view-project {
+            padding: 1rem 2rem;
+            background: $gradient-primary;
+            color: $text-primary;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.project-info {
+    padding: 2rem;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: $text-primary;
+    }
+
+    p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    span {
+        padding: 0.4rem 1rem;
+        background: rgba($accent-primary, 0.1);
+        border: 1px solid rgba($accent-primary, 0.2);
+        border-radius: 15px;
+        color: $text-primary;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba($accent-primary, 0.2);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .work-section {
+        padding: 4rem 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        gap: 1.5rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-info {
+        padding: 1.2rem;
+    }
+} 
