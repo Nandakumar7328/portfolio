@@ -1,70 +1,221 @@
-# Getting Started with Create React App
+# Nanda Kumar - AI & Full Stack Developer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website showcasing AI and Full Stack development projects, built with React and styled with SCSS.
 
-## Available Scripts
+## 🌟 Features
 
-In the project directory, you can run:
+- Modern glass-morphism design
+- Responsive layout for all devices
+- Smooth animations and transitions
+- Interactive project showcase
+- Contact form with email integration
+- Dark theme with gradient accents
+- AOS (Animate On Scroll) animations
+- Social media integration
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- SCSS/SASS
+- EmailJS for contact form
+- AOS (Animate On Scroll)
+- Font Awesome Icons
+- React Scroll
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```
+portfolio/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── manifest.json
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── nanda.png
+│   │   │   ├── django.png
+│   │   │   ├── flask.png
+│   │   │   ├── react.png
+│   │   │   ├── javascript.png
+│   │   │   ├── python.png
+│   │   │   ├── node-js.png
+│   │   │   ├── postgresql.png
+│   │   │   ├── html.png
+│   │   │   └── ai.png
+│   │   └── Nanda_Kumar_resume.pdf
+│   │
+│   ├── components/
+│   │   ├── About/
+│   │   │   ├── About.jsx
+│   │   │   └── About.scss
+│   │   │
+│   │   ├── Certificate/
+│   │   │   ├── Certificate.jsx
+│   │   │   └── Certificate.scss
+│   │   │
+│   │   ├── Contact/
+│   │   │   ├── Contact.jsx
+│   │   │   └── Contact.scss
+│   │   │
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.scss
+│   │   │
+│   │   ├── Home/
+│   │   │   ├── Home.jsx
+│   │   │   └── Home.scss
+│   │   │
+│   │   └── Work/
+│   │       ├── Work.jsx
+│   │       └── Work.scss
+│   │
+│   ├── App.js
+│   ├── App.scss
+│   ├── index.js
+│   └── index.scss
+│
+├── package.json
+├── package-lock.json
+└── README.md
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/Nandakumar7328/portfolio.git
+cd portfolio
+```
 
-### `npm run eject`
+2. Install dependencies:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Create a `.env` file in the root directory and add your EmailJS credentials:
+```
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The application will be available at `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📱 Component Details
 
-## Learn More
+### Home Component
+- Hero section with animated introduction
+- Skills showcase with progress bars
+- Animated background elements
+- Download CV button
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### About Component
+- Professional summary
+- Skills categorization
+- Experience highlights
+- Animated statistics
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Work Component
+- Project showcase grid
+- Project cards with hover effects
+- Technology tags
+- Project links
 
-### Code Splitting
+### Certificate Component
+- Certification cards
+- Issuing organization details
+- Achievement dates
+- Certificate links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Contact Component
+- Contact form with EmailJS integration
+- Social media links
+- Location and email information
+- Form validation and feedback
 
-### Analyzing the Bundle Size
+## 🎨 Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The project uses SCSS with:
+- BEM naming convention
+- Responsive design
+- CSS variables for theming
+- Mixins for reusable styles
+- Glass-morphism effects
+- Gradient animations
 
-### Making a Progressive Web App
+## 📧 Email Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The contact form uses EmailJS for sending emails:
+1. Sign up at [EmailJS](https://www.emailjs.com/)
+2. Create an email service
+3. Create an email template
+4. Add your credentials to the `.env` file
 
-### Advanced Configuration
+## 🔧 Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Changing Colors
+Edit the SCSS variables in each component's `.scss` file:
+```scss
+$primary-color: #2a2a2a;
+$accent-color: #00f2fe;
+$text-color: #ffffff;
+```
 
-### Deployment
+### Updating Content
+- Update personal information in respective component files
+- Replace images in the `assets/images` directory
+- Modify project details in the Work component
+- Update skills in the About component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📱 Responsive Design
 
-### `npm run build` fails to minify
+The portfolio is fully responsive with breakpoints at:
+- Mobile: < 480px
+- Tablet: 481px - 768px
+- Desktop: > 768px
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Deploy the `build` folder to your preferred hosting service:
+- Netlify
+- Vercel
+- GitHub Pages
+- Firebase Hosting
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👤 Contact
+
+Nanda Kumar
+- Email: nanduaru333@gmail.com
+- LinkedIn: [Nanda Kumar](https://www.linkedin.com/in/nandakumar-arjun)
+- GitHub: [Nandakumar7328](https://github.com/Nandakumar7328)
+- Twitter: [@nandakumar_tech](https://twitter.com/nandakumar_tech)
+
+## 🙏 Acknowledgments
+
+- Font Awesome for icons
+- AOS library for scroll animations
+- EmailJS for contact form functionality
+- Unsplash for stock images
