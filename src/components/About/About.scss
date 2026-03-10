@@ -33,7 +33,7 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
 
 // About Section
 .about-section {
-    padding: 6rem 2rem;
+    padding: 4rem 1.5rem;
     background: $bg-primary;
     position: relative;
     overflow: hidden;
@@ -54,7 +54,7 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
     .section-title {
         font-size: 2.5rem;
@@ -73,29 +73,72 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
     align-items: start;
 
     @media (max-width: 1024px) {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 }
 
 .about-text {
+    .summary-card {
+        @include glass-card;
+        padding: 1.25rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        margin-bottom: 1rem;
+    }
+
     .description {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         line-height: 1.8;
         color: $text-secondary;
-        margin-bottom: 3rem;
+        margin: 0;
+    }
+
+    .highlights-card {
+        @include glass-card;
+        padding: 1.25rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $text-primary;
+        }
+
+        .highlights-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.45rem;
+
+            span {
+                padding: 0.35rem 0.75rem;
+                background: rgba($accent-secondary, 0.12);
+                border: 1px solid rgba($accent-secondary, 0.3);
+                border-radius: 16px;
+                color: $text-primary;
+                font-size: 0.85rem;
+            }
+        }
     }
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1rem;
 
     .stat-item {
         @include glass-card;
@@ -124,26 +167,40 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
 .skills-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1rem;
+    align-items: stretch;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+.skills-category.full {
+    grid-column: 1 / -1;
 }
 
 .skills-category {
     @include glass-card;
-    padding: 2rem;
+    padding: 1.25rem;
     transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 
     &:hover {
         transform: translateY(-5px);
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 600;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         color: $text-primary;
         position: relative;
         display: inline-block;
@@ -168,19 +225,19 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
     }
 
     .skills-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.4rem;
 
         span {
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.75rem;
             background: rgba($accent-primary, 0.1);
             border: 1px solid rgba($accent-primary, 0.2);
             border-radius: 20px;
             color: $text-primary;
-            font-size: 0.9rem;
+            font-size: 0.83rem;
             transition: all 0.3s ease;
-
+        
             &:hover {
                 background: rgba($accent-primary, 0.2);
                 transform: translateY(-2px);

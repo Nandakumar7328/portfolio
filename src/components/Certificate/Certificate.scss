@@ -84,7 +84,7 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
 
 .certificate-card {
     @include glass-card;
-    padding: 2rem;
+    padding: 0;
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -104,68 +104,44 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
 
     &:hover {
         transform: translateY(-10px);
+        &::before { opacity: 0.08; }
+    }
+}
 
-        &::before {
-            opacity: 0.1;
-        }
+.certificate-thumb {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
 
-        .view-certificate {
-            transform: translateY(0);
-            opacity: 1;
-        }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 }
 
 .certificate-content {
     position: relative;
     z-index: 1;
+    padding: 1.25rem 1.5rem 1.5rem;
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin: 0;
         color: $text-primary;
     }
 
-    .certificate-details {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-
-        .issuer {
-            color: $accent-primary;
-            font-weight: 500;
-        }
-
-        .date {
-            color: $text-secondary;
-        }
-    }
-
-    p {
+    .certificate-desc {
+        margin-top: 0.5rem;
         color: $text-secondary;
         line-height: 1.6;
-        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
     }
 }
 
-.view-certificate {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: $gradient-primary;
-    color: $text-primary;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    transform: translateY(10px);
-    opacity: 0;
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba($accent-primary, 0.3);
-    }
-}
+/* removed button */
 
 // Responsive Design
 @media (max-width: 768px) {
@@ -181,9 +157,7 @@ $gradient-glow: linear-gradient(135deg, rgba($accent-primary, 0.5), rgba($accent
         }
     }
 
-    .certificate-card {
-        padding: 1.5rem;
-    }
+    .certificate-thumb { height: 180px; }
 }
 
 @media (max-width: 480px) {

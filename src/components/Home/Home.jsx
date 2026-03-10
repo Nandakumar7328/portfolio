@@ -5,7 +5,6 @@ import Certificate from '../Certificate/Certificate.jsx';
 import Work from '../Work/Work.jsx';
 import Contact from '../Contact/Contact.jsx';
 import profile from '../../assets/images/nanda.png';
-import cv from "../../assets/Nanda_Kumar_resume.pdf";
 import './Home.scss';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -51,15 +50,15 @@ const Home = () => {
                             <div className="greeting">Hello, I'm</div>
                             <h1 className="name">Nanda Kumar</h1>
                             <div className="title">
-                                <span className="title-text">AI & Full Stack Developer</span>
+                                <span className="title-text">AI-Driven Full Stack Developer | Real-Time Analytics</span>
                                 <div className="title-line"></div>
                             </div>
                         </div>
                         <p className="description">
-                            Specializing in building intelligent web applications that combine cutting-edge AI technologies with robust full-stack development. Expert in creating scalable, AI-powered solutions that drive business innovation.
+                            Full stack engineer (Python/React) focusing on high-performance backends, WebSocket-based real-time dashboards, and production AI/ML integrations. Experienced in time-series data processing, scalable monitoring platforms, and CI/CD.
                         </p>
                         <div className="cta-buttons">
-                            <a href={cv} className="primary-btn" target="_blank" rel="noopener noreferrer" download>
+                            <a href={"/Nanda%20Kumar.pdf"} className="primary-btn" target="_blank" rel="noopener noreferrer" download>
                                 <span className="btn-icon">📄</span>
                                 <span className="btn-text">Download CV</span>
                                 <span className="btn-glow"></span>
@@ -199,7 +198,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Work Section */}
+            {/* Resume Section */}
             <Work />
 
             {/* Certificate Section */}
